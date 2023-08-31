@@ -1,4 +1,5 @@
-import main.java.RandomGen;
+package randomgenerator;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
