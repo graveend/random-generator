@@ -49,8 +49,16 @@ public class RandomGenTest {
     @Test
     public void test_constructor_throws_whenSumOfProbabilitiesNotExactlyOne() {
         int[] randomNums = {-1, 1};
-        float[] probabilities = {0.2f, 0.5f};
+        float[] probabilities = {0.5f, 0.5f};
 
         assertThrows(IllegalArgumentException.class, () -> new RandomGen(randomNums, probabilities));
+    }
+
+    @Test
+    public void test_constructor_throws_whenProbabilityIsInvalid() {
+        int[] randomNums = {-1, 1};
+
+        assertThrows(IllegalArgumentException.class, () -> new RandomGen(randomNums, new float[]{1.5f, -0.5f}));
+        assertThrows(IllegalArgumentException.class, () -> new RandomGen(randomNums, new float[]{-0.5f, 1.5f}));
     }
 }

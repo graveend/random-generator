@@ -24,6 +24,11 @@ public class RandomGen {
     private void calculateCumulativeProbabilities(float[] probabilities) {
         float cumulativeProbability = 0;
         for (int i = 0; i < probabilities.length; i++) {
+            if(probabilities[i] < 0 || probabilities[i] > 1) {
+                throw new IllegalArgumentException(
+                        String.format("Probabilities must be between 1 and 0, " +
+                                "but was %f at index %s", probabilities[i], i));
+            }
             cumulativeProbability += probabilities[i];
             cumulativeProbabilities[i] = cumulativeProbability;
         }
