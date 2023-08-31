@@ -21,11 +21,6 @@ public class RandomGen {
         this.calculateCumulativeProbabilities(probabilities);
     }
 
-    /**
-     Returns one of the randomNums. When this method is called
-     multiple times over a long period, it should return the
-     numbers roughly with the initialized probabilities.
-     */
     private void calculateCumulativeProbabilities(float[] probabilities) {
         float cumulativeProbability = 0;
         for (int i = 0; i < probabilities.length; i++) {
@@ -38,6 +33,11 @@ public class RandomGen {
         }
     }
 
+    /**
+     Returns one of the randomNums. When this method is called
+     multiple times over a long period, it should return the
+     numbers roughly with the initialized probabilities.
+     */
     public int nextNum() {
         // generate a random float between 0 and 1
         float randomValue = random.nextFloat();
